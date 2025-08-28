@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request, redirect
-from inventario import Producto, Inventario
-
 app = Flask(__name__)
 inventario = Inventario()
 
