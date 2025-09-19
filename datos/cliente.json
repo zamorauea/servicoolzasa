@@ -1,0 +1,17 @@
+[
+  {
+    "nombre": "Carlos Pérez",
+    "correo": "carlos.perez@gmail.com",
+    "mensaje": "Necesito una cotización para instalar un aire acondicionado de 12 kBTU."
+  },
+  {
+    "nombre": "María López",
+    "correo": "maria.lopez@hotmail.com",
+    "mensaje": "Quiero saber el precio del mantenimiento preventivo para un equipo de 18 kBTU."
+  },
+  {
+    "nombre": "José Martínez",
+    "correo": "jose.mtz@yahoo.com",
+    "mensaje": "¿Tienen repuestos para un aire acondicionado de 24 kBTU marca LG?"
+  }
+]

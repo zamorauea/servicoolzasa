@@ -1,21 +1,8 @@
-<h1>Inventario Servi Cool ZA-SA</h1>
-<a href="/agregar">Agregar Producto</a>
-<form action="/buscar" method="POST">
-  <input type="text" name="nombre" placeholder="Buscar producto">
-  <button type="submit">Buscar</button>
-</form>
-<table border="1">
-<tr><th>ID</th><th>Nombre</th><th>Cantidad</th><th>Precio</th><th>Acciones</th></tr>
-{% for p in productos %}
-<tr>
-<td>{{ p[0] }}</td>
-<td>{{ p[1] }}</td>
-<td>{{ p[2] }}</td>
-<td>{{ p[3] }}</td>
-<td>
-  <a href="/actualizar/{{ p[0] }}">Actualizar</a> |
-  <a href="/eliminar/{{ p[0] }}">Eliminar</a>
-</td>
-</tr>
-{% endfor %}
-</table>
+{% extends "base.html" %}
+{% block content %}
+<h1>Bienvenido a Serviciool Zasa</h1>
+<p>Especialistas en instalación, reparación y venta de aires acondicionados.</p>
+<a href="{{ url_for('servicios') }}">Ver servicios</a>
+<a href="{{ url_for('productos') }}">Ver productos</a>
+<a href="{{ url_for('contacto') }}">Contáctanos</a>
+{% endblock %}

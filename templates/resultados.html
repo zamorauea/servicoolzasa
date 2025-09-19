@@ -1,0 +1,6 @@
+<h2>Clientes registrados (SQLite)</h2>
+<ul>
+  {% for c in datos %}
+    <li>{{ c.nombre }} - {{ c.correo }} - {{ c.mensaje }}</li>
+  {% endfor %}
+</ul>

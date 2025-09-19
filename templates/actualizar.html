@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Actualizar Producto{% endblock %}
+
+{% block content %}
 <h1>Actualizar Producto</h1>
 <form method="POST">
   Nombre: <input type="text" name="nombre" value="{{ producto[1] }}" required><br>
@@ -6,3 +10,4 @@
   <button type="submit">Actualizar</button>
 </form>
 <a href="/">Volver</a>
+{% endblock %}
