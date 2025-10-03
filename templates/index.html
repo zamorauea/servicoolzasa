@@ -1,8 +1,26 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>Bienvenido a Serviciool Zasa</h1>
-<p>Especialistas en instalación, reparación y venta de aires acondicionados.</p>
-<a href="{{ url_for('servicios') }}">Ver servicios</a>
-<a href="{{ url_for('productos') }}">Ver productos</a>
-<a href="{{ url_for('contacto') }}">Contáctanos</a>
-{% endblock %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventario Servicool</title>
+</head>
+<body>
+    <h1>Inventario de Productos</h1>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+        </tr>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.cantidad }}</td>
+            <td>${{ producto.precio }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
