@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #f4f6f8;
+    }
+
+    .login-container {
+        max-width: 400px;
+        margin: 80px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border-radius: 10px;
+    }
+
+    .login-container h2 {
+        text-align: center;
+        color: #333333;
+        margin-bottom: 25px;
+        font-weight: 600;
+    }
+
+    .form-control {
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #cccccc;
+        padding: 10px;
+    }
+
+    .btn-login {
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+
+    .btn-login:hover {
+        background-color: #0056b3;
+    }
+
+    .login-footer {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 0.9rem;
+        color: #666666;
+    }
+
+    .login-footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .login-footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form action="{{ url_for('login') }}" method="POST">
+        <input type="text" name="username" placeholder="Usuario" class="form-control" required>
+        <input type="password" name="password" placeholder="Contraseña" class="form-control" required>
+        <button type="submit" class="btn-login">Ingresar</button>
+    </form>
+    <div class="login-footer">
+        ¿No tienes cuenta? <a href="{{ url_for('register') }}">Regístrate aquí</a>
+    </div>
+</div>
+{% endblock %}

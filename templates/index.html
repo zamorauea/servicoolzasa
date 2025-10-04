@@ -1,26 +1,54 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Inventario Servicool</title>
+    <meta charset="UTF-8">
+    <title>Serviciool Zasa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Inventario de Productos</h1>
-    <table border="1" cellpadding="5">
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
-        </tr>
-        {% for producto in productos %}
-        <tr>
-            <td>{{ producto.id }}</td>
-            <td>{{ producto.nombre }}</td>
-            <td>{{ producto.cantidad }}</td>
-            <td>${{ producto.precio }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <!-- Menú sticky -->
+    <header class="sticky">
+        <h2>Serviciool Zasa</h2>
+        <nav>
+            <a href="{{ url_for('home') }}">Inicio</a>
+            <a href="{{ url_for('servicios') }}">Servicios</a>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+            <input type="text" placeholder="Buscar..." class="busqueda">
+            <a href="#" class="carrito">🛒</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>¡Tu clima ideal está aquí!</h1>
+        <p>Soluciones modernas de aire acondicionado</p>
+
+        <!-- Carrusel de colores -->
+        <div class="carousel">
+            <div class="carousel-item active" style="background-color:#ff6f61;"></div>
+            <div class="carousel-item" style="background-color:#ff9a7b;"></div>
+            <div class="carousel-item" style="background-color:#74ebd5;"></div>
+        </div>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section class="mision-vision">
+        <div class="card anim-card">
+            <h2>Misión</h2>
+            <p>Brindar soluciones de climatización innovadoras y eficientes.</p>
+        </div>
+        <div class="card anim-card">
+            <h2>Visión</h2>
+            <p>Ser líderes en servicios de aire acondicionado, destacando por innovación y confianza.</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Explora nuestros servicios ahora</h2>
+        <a href="{{ url_for('servicios') }}" class="btn">Ver Servicios</a>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
