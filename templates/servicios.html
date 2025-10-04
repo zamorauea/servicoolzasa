@@ -1,11 +1,83 @@
 {% extends "base.html" %}
-{% block content %}
-<h2>Nuestros Servicios</h2>
-<ul>
-  <li>Reparación de aires acondicionados</li>
-  <li>Venta de equipos</li>
-  <li>Repuestos y accesorios</li>
-  <li>Mantenimiento preventivo</li>
-</ul>
-{% endblock %}
 
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Nuestros Servicios</h2>
+    <p class="text-center mb-5">En <strong>Servicool Zasa</strong> ofrecemos servicios de aire acondicionado que garantizan tu confort y tranquilidad. Todos nuestros servicios son realizados por técnicos profesionales y certificados.</p>
+
+    <div class="row text-center">
+        <!-- Servicio 1: Instalación -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2017/08/10/07/52/air-conditioner-2613600_1280.jpg" class="card-img-top" alt="Instalación">
+                <div class="card-body">
+                    <h4 class="card-title">Instalación</h4>
+                    <p class="card-text">Instalamos tu aire acondicionado de manera rápida, segura y profesional en hogares y oficinas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Servicio 2: Reparación -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2017/02/15/12/12/air-conditioner-2062696_1280.jpg" class="card-img-top" alt="Reparación">
+                <div class="card-body">
+                    <h4 class="card-title">Reparación</h4>
+                    <p class="card-text">Reparamos cualquier marca o modelo de aire acondicionado con piezas originales y garantía de calidad.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Servicio 3: Mantenimiento -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2017/02/15/12/14/air-conditioner-2062706_1280.jpg" class="card-img-top" alt="Mantenimiento">
+                <div class="card-body">
+                    <h4 class="card-title">Mantenimiento</h4>
+                    <p class="card-text">Limpieza y mantenimiento preventivo para que tu equipo funcione siempre como nuevo y ahorre energía.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Llamada a la acción -->
+    <div class="text-center mt-5">
+        <a href="{{ url_for('contacto') }}" class="btn btn-primary btn-lg">Solicita tu servicio</a>
+    </div>
+</div>
+
+
+
+<h1>Servicios</h1>
+
+<!-- Formulario para agregar servicio -->
+<form action="/servicios/agregar" method="post">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="text" name="descripcion" placeholder="Descripción" required>
+    <input type="number" step="0.01" name="precio" placeholder="Precio" required>
+    <button type="submit">Agregar</button>
+</form>
+
+<!-- Tabla de servicios -->
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+    </tr>
+    {% for s in servicios %}
+    <tr>
+        <td>{{ s.id }}</td>
+        <td>{{ s.nombre }}</td>
+        <td>{{ s.descripcion }}</td>
+        <td>{{ s.precio }}</td>
+        <td>
+            <a href="/servicios/eliminar/{{ s.id }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,9 +1,24 @@
 {% extends "base.html" %}
+{% block title %}Editar Producto{% endblock %}
 {% block content %}
-<h2>Productos Disponibles</h2>
-<ul>
-  <li>Aire acondicionado 12 kBTU</li>
-  <li>Aire acondicionado 18 kBTU</li>
-  <li>Aire acondicionado 24 kBTU</li>
-</ul>
+<h2>Editar producto</h2>
+<form method="POST" action="{{ url_for('actualizar_producto', id=producto[0]) }}" class="formulario">
+    <label>Nombre del producto:</label>
+    <input type="text" name="nombre" value="{{ producto[1] }}" required>
+
+    <label>Tipo de aire:</label>
+    <select name="tipo" required>
+        <option value="12 kBTU" {% if producto[2] == "12 kBTU" %}selected{% endif %}>12 kBTU</option>
+        <option value="18 kBTU" {% if producto[2] == "18 kBTU" %}selected{% endif %}>18 kBTU</option>
+        <option value="24 kBTU" {% if producto[2] == "24 kBTU" %}selected{% endif %}>24 kBTU</option>
+    </select>
+
+    <label>Cantidad disponible:</label>
+    <input type="number" name="cantidad" value="{{ producto[3] }}" required>
+
+    <label>Precio unitario ($):</label>
+    <input type="number" name="precio" step="0.01" value="{{ producto[4] }}" required>
+
+    <button type="submit">Actualizar</button>
+</form>
 {% endblock %}
